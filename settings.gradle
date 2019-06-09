@@ -1,0 +1,5 @@
+rootProject.name = 'oauth2-study'
+include 'server-auth'
+include 'server-resource'
+include 'server-h2'
+

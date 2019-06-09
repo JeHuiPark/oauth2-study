@@ -1,0 +1,23 @@
+
+server:
+  port: ${port:8080}
+
+spring:
+
+  datasource:
+    continue-on-error: true
+    hikari:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:tcp://localhost:9092/oauth
+      username:
+      password:
+
+  jpa:
+    database-platform: H2
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql:
+    open-in-view: false

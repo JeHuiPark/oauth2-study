@@ -1,0 +1,27 @@
+server:
+  port: ${port:8081}
+
+spring:
+
+  datasource:
+    continue-on-error: true
+    hikari:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:tcp://localhost:9092/oauth
+      username:
+      password:
+    schema: classpath:oauth2-schema.sql
+
+  jpa:
+    database-platform: H2
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql:
+        cache:
+          use_second_level_cache: true
+          region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+    open-in-view: false
+

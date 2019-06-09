@@ -1,0 +1,70 @@
+buildscript {
+    ext {
+        querydslPluginVersion = '1.0.10'
+        springBootVersion = '2.1.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
+    }
+
+}
+
+// 멀티 프로젝트 스크립트
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'github.jehuipark'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '1.8'
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'org.springframework.security:spring-security-test'
+        testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+    }
+}
+
+/*
+project(':module-api-server') {
+    dependencies {
+        compile project(':module-core')
+    }
+}
+
+project(':module-auth-server') {
+    dependencies {
+        compile project(':module-core')
+    }
+}
+
+project(':oauth-resource') {
+    dependencies {
+        compile project(':oauth-server')
+    }
+}
+*/

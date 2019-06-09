@@ -1,0 +1,7 @@
+server:
+  port: ${port:8092}
+
+h2:
+  db-port: 9092
+  external-db-name: oauth
+  internal-db-name: oauth
