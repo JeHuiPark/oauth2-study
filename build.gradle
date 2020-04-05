@@ -1,6 +1,5 @@
 buildscript {
     ext {
-        querydslPluginVersion = '1.0.10'
         springBootVersion = '2.1.4.RELEASE'
     }
     repositories {
@@ -48,23 +47,3 @@ subprojects {
         testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
     }
 }
-
-/*
-project(':module-api-server') {
-    dependencies {
-        compile project(':module-core')
-    }
-}
-
-project(':module-auth-server') {
-    dependencies {
-        compile project(':module-core')
-    }
-}
-
-project(':oauth-resource') {
-    dependencies {
-        compile project(':oauth-server')
-    }
-}
-*/
