@@ -50,7 +50,6 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
               .tokenStore(tokenStore)
               .userDetailsService(userService)
               .approvalStore(approvalStore);
-//              .tokenEnhancer(jwtAccessTokenConverter);
     // @formatter:on
   }
 
